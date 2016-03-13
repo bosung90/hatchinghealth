@@ -7,7 +7,7 @@ Meteor.startup(()=>{
 
 	let patientUserId = Accounts.findUserByEmail('lisa@example.com')
 	if(!patientUserId) {
-		patientUserId = Accounts.createUser({email: 'lisa@example.com', password: '123'})
+		patientUserId = Accounts.createUser({email: 'lisa@example.com', username: '123456789', password: '123'})
 		Patients.insert({userId: patientUserId, doctorId: doctorUserId, phoneNumber: '778-333-4444', name: 'Lisa Wong', baseWeight: 60})
 
 		let date = new Date();
