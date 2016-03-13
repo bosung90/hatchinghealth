@@ -10,9 +10,9 @@ FlowRouter.route('/DoctorDashboard', {
 	}
 })
 
-FlowRouter.route('/charts', {
+FlowRouter.route('/patients', {
 	action(params, queryParams) {
-		ReactLayout.render(ChartsPage)
+		ReactLayout.render(Patients)
 	}
 })
 
