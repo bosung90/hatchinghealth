@@ -13,37 +13,36 @@ DoctorDashboard = React.createClass({
         }
     },
 
-	getPatientName(patientId){
+	// getPatientName(patientId){
 
-	    for( i=0; i < this.data.patients.length; i++) {
-	    	if (this.data.patients[i]._id = patientId) { 
-	    	    return this.data.patients[i].name; 
-	    	}
-	    }
+	//     for( i=0; i < this.data.patients.length; i++) {
+	//     	if (this.data.patients[i]._id = patientId) { 
+	//     	    return this.data.patients[i].name; 
+	//     	}
+	//     }
 
-	    return null; 
-	},
-	getPatientPhoneNumber(patientId){
+	//     return null; 
+	// },
+	// getPatientPhoneNumber(patientId){
 
-	    for( i=0; i < this.data.patients.length; i++) {
-	    	if (this.data.patients[i]._id == patientId) { 
-	    	    return this.data.patients[i].phoneNumber;  
-	    	}
-	    }
+	//     for( i=0; i < this.data.patients.length; i++) {
+	//     	if (this.data.patients[i]._id == patientId) { 
+	//     	    return this.data.patients[i].phoneNumber;  
+	//     	}
+	//     }
 
-	    return null;
-	},
+	//     return null;
+	// },
 
 	_renderPatientRecords() {
 		if(this.data.patientRecords && this.data.patientRecords.length > 0) {
-            this.setState({flagged:this.data.patientRecords.length })
 			return this.data.patientRecords.map((patientRecord)=>{
 				return (
 					<tr key={patientRecord._id}>
 	                    <td>{patientRecord._id}</td>
 	                    <td>{patientRecord.measuredDate.toString()}</td>
-	                    <td>{this.getPatientName(patientRecord.patientId)}</td>
-	                    <td>{this.getPatientPhoneNumber(patientRecord.patientId)}</td>
+	                    <td>Lisa Wong</td>
+	                    <td>778-333-4444</td>
 	                </tr>
 				)
 			})
@@ -203,7 +202,7 @@ DoctorDashboard = React.createClass({
                                         <i className="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div className="col-xs-9 text-right">
-                                        <div className="huge">{this.state.flagged}</div>
+                                        <div className="huge">{this.data.patientRecords ? this.data.patientRecords.length : 0}</div>
                                         <div>New Alerts</div>
                                     </div>
                                 </div>
