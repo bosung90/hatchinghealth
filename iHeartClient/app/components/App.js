@@ -16,9 +16,9 @@ import Meteor, {connectMeteor, } from 'react-native-meteor'
 import Main from './Main'
 import Login from './Login'
 import EnterData from './EnterData'
-import Profile from './Profile'
+import Support from './Support'
 import History from './History'
-const Page = {Login, Main, EnterData, Profile, History}
+const Page = {Login, Main, EnterData, Support, History}
 
 @connectMeteor
 export default class App extends Component {
@@ -32,8 +32,8 @@ export default class App extends Component {
 		if(route.className) {
 			return React.createElement(Page[route.className], {route, navigator, setNavBarVisibility: this.setNavBarVisibility.bind(this)})
 		} else {
-			route.title = 'Login'
-			return React.createElement(Page['Login'], {route, navigator, setNavBarVisibility: this.setNavBarVisibility.bind(this)})
+			route.title = 'Main'
+			return React.createElement(Page['Main'], {route, navigator, setNavBarVisibility: this.setNavBarVisibility.bind(this)})
 		}
 	}
   setNavBarVisibility(visible) {

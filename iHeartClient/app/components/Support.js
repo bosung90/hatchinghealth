@@ -9,7 +9,7 @@ import style from './../style/style'
 import Meteor, {connectMeteor, } from 'react-native-meteor'
 
 @connectMeteor
-export default class Profile extends Component {
+export default class Support extends Component {
 
 	constructor(props){
 		super(props)
