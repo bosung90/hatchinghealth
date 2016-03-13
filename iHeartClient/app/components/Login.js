@@ -38,16 +38,31 @@ export default class Login extends Component {
 	render(){
 		return(
 			<View style={style.center}>
- 				<TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1}} 
-	 				onChangeText={(username) => this.setState({username})} 
-	 				placeholder='Email or Care Card Number'
-	 				value={this.state.username} />
- 				<TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1}} 
-	 				onChangeText={(password) => this.setState({password})} 
-	 				placeholder='Password'
-	 				value={this.state.password} />
- 				<TouchableOpacity onPress={this.login.bind(this)}>
- 					<Text>Login</Text>
+				<View style={{borderRadius: 100, borderWidth: 2, width: 150, height: 150, marginBottom: 70}}>
+				</View>
+
+				<View style={{width: 300, borderWidth: 2}}>
+	 				<TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1,}}
+	 					underlineColorAndroid ='transparent'
+		 				onChangeText={(username) => this.setState({username})} 
+		 				placeholder='Email or Care Card'
+		 				value={this.state.username} />
+ 				</View>
+ 				<View style={{width: 300, borderWidth: 2, marginTop: 30,}}>
+	 				<TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1}} 
+	 					underlineColorAndroid ='transparent'
+		 				onChangeText={(password) => this.setState({password})} 
+		 				placeholder='Password'
+		 				secureTextEntry={true}
+		 				value={this.state.password} />
+ 				</View>
+ 				<View style={{borderWidth: 2, marginTop: 30,}}>
+	 				<TouchableOpacity style={{width: 110, height: 44, alignItems: 'center', justifyContent: 'center',}} onPress={this.login.bind(this)}>
+	 					<Text>Log In</Text>
+	 				</TouchableOpacity>
+ 				</View>
+ 				<TouchableOpacity style={{marginTop: 16}}>
+ 					<Text style={{color: 'teal', textDecorationLine: 'underline'}}>I forgot my password</Text>
  				</TouchableOpacity>
 			</View>
 		)
