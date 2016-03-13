@@ -30,7 +30,9 @@ export default class EnterData extends Component {
 	_renderQuestion(){
 
 	}
-
+	onSelection(index, selection) {
+		alert(JSON.stringify({index, selection}))
+	}
 	render(){
 		return(
 			<ScrollView contentContainerStyle={styles.container}>
@@ -41,10 +43,10 @@ export default class EnterData extends Component {
 					null
 				}
 				<Text style={{marginTop: 16, alignSelf: 'flex-start', marginLeft: 12, marginBottom: 12}}>Comapred to yesterday, I feel...</Text>
-				<QuestionCard question='1. Short of breath when exerting.' bgColor='#ddd'></QuestionCard>
-				<QuestionCard question='2. Short of breadth at night.'></QuestionCard>
-				<QuestionCard question='3. My leg swollen.' bgColor='#ddd'></QuestionCard>
-				<QuestionCard question='4. Lightheaded.'></QuestionCard>
+				<QuestionCard question='1. Short of breath when exerting.' bgColor='#ddd' onSelection={this.onSelection.bind(this, 1)}></QuestionCard>
+				<QuestionCard question='2. Short of breadth at night.' onSelection={this.onSelection.bind(this, 2)}></QuestionCard>
+				<QuestionCard question='3. My leg swollen.' bgColor='#ddd' onSelection={this.onSelection.bind(this, 3)}></QuestionCard>
+				<QuestionCard question='4. Lightheaded.' onSelection={this.onSelection.bind(this, 4)}></QuestionCard>
 	 				<TouchableOpacity style={{height: 44, backgroundColor: '#1e88e5', width, justifyContent: 'center', alignItems: 'center',}} onPress={this.submit}>
 	 					<Text style={{color: 'white', fontSize: 19}}>Submit</Text>
 	 				</TouchableOpacity>
