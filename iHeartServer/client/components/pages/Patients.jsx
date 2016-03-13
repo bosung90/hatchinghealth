@@ -1,4 +1,4 @@
-DoctorDashboard = React.createClass({
+Patients = React.createClass({
 	mixins: [ReactMeteorData],
 	getMeteorData() {
 
