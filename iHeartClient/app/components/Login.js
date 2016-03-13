@@ -5,6 +5,7 @@ import React, {
 	TextInput,
 	TouchableOpacity,
 	AsyncStorage,
+	Image,
 } from 'react-native'
 import style from './../style/style'
 import Meteor, {connectMeteor, } from 'react-native-meteor'
@@ -38,8 +39,8 @@ export default class Login extends Component {
 	render(){
 		return(
 			<View style={style.center}>
-				<View style={{borderRadius: 100, borderWidth: 2, width: 150, height: 150, marginBottom: 70}}>
-				</View>
+				
+				<Image style={{width: 300, height: 300,}} source={require('./../img/login/Logo.png')} />
 
 				<View style={{width: 300, borderWidth: 2}}>
 	 				<TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1,}}
