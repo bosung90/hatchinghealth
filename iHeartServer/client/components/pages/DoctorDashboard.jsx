@@ -1,8 +1,46 @@
 DoctorDashboard = React.createClass({
 	mixins: [ReactMeteorData],
 	getMeteorData() {
+
 		return {
-			user: Meteor.user(),
+			patients : Patients.find().fetch(),
+			patientRecords : PatientRecords.find({}, {$eq: {flag: 'flagged'}}).fetch(),
+		}
+	},
+
+	getPatientName(patientId){
+
+	    for( i=0; i < this.data.patients.length; i++) {
+	    	if (this.data.patients[i]._id = patientId) { 
+	    	    return this.data.patients[i].name; 
+	    	}
+	    }
+
+	    return null; 
+	},
+	getPatientPhoneNumber(patientId){
+
+	    for( i=0; i < this.data.patients.length; i++) {
+	    	if (this.data.patients[i]._id == patientId) { 
+	    	    return this.data.patients[i].phoneNumber;  
+	    	}
+	    }
+
+	    return null;
+	},
+
+	_renderPatientRecords() {
+		if(this.data.patientRecords && this.data.patientRecords.length > 0) {
+			return this.data.patientRecords.map((patientRecord)=>{
+				return (
+					<tr key={patientRecord._id}>
+	                    <td>{patientRecord._id}</td>
+	                    <td>{patientRecord.measuredDate.toString()}</td>
+	                    <td>{this.getPatientName(patientRecord.patientId)}</td>
+	                    <td>{this.getPatientPhoneNumber(patientRecord.patientId)}</td>
+	                </tr>
+				)
+			})
 		}
 	},
 	render() {
@@ -237,77 +275,12 @@ DoctorDashboard = React.createClass({
                                             <tr>
                                                 <th>Alert ID</th>
                                                 <th>Alert Date</th>
-                                                <th>Alert Time</th>
-                                                <th>PHN #</th>
-                                                <th>Last Name</th>
-                                                <th>First Name</th>
+                                                <th>Name</th>
+                                                <th>Phone Number</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>764 567 093</td>
-                                                <td> Doe </td>
-                                                <td> John </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>764 567 093</td>
-                                                <td> Doe </td>
-                                                <td> John </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>764 567 093</td>
-                                                <td> Doe </td>
-                                                <td> John </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>764 567 093</td>
-                                                <td> Doe </td>
-                                                <td> John </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>764 567 093</td>
-                                                <td> Doe </td>
-                                                <td> John </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>764 567 093</td>
-                                                <td> Doe </td>
-                                                <td> John </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>764 567 093</td>
-                                                <td> Doe </td>
-                                                <td> John </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>764 567 093</td>
-                                                <td> Doe </td>
-                                                <td> John </td>
-                                            </tr>
+                                        	{this._renderPatientRecords()}
                                         </tbody>
                                     </table>
                                 </div>
