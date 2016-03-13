@@ -14,9 +14,6 @@ export default class QuestionCard extends Component {
 			selection: 0
 		}
 	}
-	_onSubmit(){
-
-	}
 	onSelection(selection){
 		this.setState({selection: selection})
 		this.props.onSelection(selection)
