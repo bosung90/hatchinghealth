@@ -29,10 +29,10 @@ LoginPage = React.createClass({
 			      <div className="modal-body">
 			          <form className="form col-md-12 center-block" onSubmit={this.onLoginSubmit}>
 			            <div className="form-group">
-			              <input type="text" className="form-control input-lg" placeholder="Email" />
+			              <input type="text" className="form-control input-lg" placeholder="Email" defaultValue="annie@example.com" />
 			            </div>
 			            <div className="form-group">
-			              <input type="password" className="form-control input-lg" placeholder="Password" />
+			              <input type="password" className="form-control input-lg" placeholder="Password" defaultValue="123"/>
 			            </div>
 			            <div className="form-group">
 			              <button className="btn btn-primary btn-lg btn-block">Sign In</button>
