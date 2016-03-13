@@ -13,13 +13,20 @@ LoginPage = React.createClass({
 			if(err) {
 				alert(JSON.stringify(err))
 			} else {
-				alert ('logged in successfully')
+				FlowRouter.go('/DoctorDashboard')
 			}
 		})
 	},
+	componentDidMount(){
+		if(this.data.user) {
+			FlowRouter.go('/DoctorDashboard')
+		} else {
+			console.log('!!!!!!you are not logged in')
+		}
+	},
 	render() {
 		return (
-			<div id="loginModal" className="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+			<div id="loginModal" className="modal show" tabIndex="-1" role="dialog" aria-hidden="true">
 			  <div className="modal-dialog">
 			  <div className="modal-content">
 			      <div className="modal-header">
@@ -35,7 +42,7 @@ LoginPage = React.createClass({
 			              <input type="password" className="form-control input-lg" placeholder="Password" defaultValue="123"/>
 			            </div>
 			            <div className="form-group">
-			              <button className="btn btn-primary btn-lg btn-block">Sign In</button>
+			             <button className="btn btn-primary btn-lg btn-block">Sign In</button>
 			              <span className="pull-right"><a href="/register">Register</a></span><span><a href="#">Need help?</a></span>
 			            </div>
 			          </form>

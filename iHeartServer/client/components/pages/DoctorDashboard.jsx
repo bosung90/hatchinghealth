@@ -203,7 +203,7 @@ DoctorDashboard = React.createClass({
                                         <i className="fa fa-support fa-5x"></i>
                                     </div>
                                     <div className="col-xs-9 text-right">
-                                        <div className="huge">13</div>
+                                        <div className="huge">50</div>
                                         <div>Total Users</div>
                                     </div>
                                 </div>
