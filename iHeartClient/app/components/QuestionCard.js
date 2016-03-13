@@ -14,10 +14,18 @@ export default class QuestionCard extends Component {
 			selection: 0
 		}
 	}
+	_onSubmit(){
+
+	}
 	render(){
 		return(
 			<View style={{flex:1, height: 100, width: width, alignSelf: 'flex-start', paddingLeft: 12, paddingRight: 12, backgroundColor: this.props.bgColor}}>
-				<Text style={{marginTop: 8}}>{this.props.question}</Text>
+				<View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+					<Text style={{marginTop: 8}}>{this.props.question}</Text>
+					<TouchableOpacity style={{width: 44, height: 44, justifyContent: 'center', alignItems: 'center'}}>
+						<View style={{borderWidth: 1, width: 20, height: 20, borderRadius: 20, justifyContent: 'center', alignItems: 'center'}}><Text style={{fontWeight: 'bold'}}>?</Text></View>
+					</TouchableOpacity>
+				</View>
 				<View style={{flex:1, flexDirection: 'row', justifyContent: 'space-between',  margin: 8, alignItems: 'center'}}>
 						<TouchableOpacity style={{width: 100, height: 44, justifyContent: 'center', alignItems: 'center'}} onPress={()=>this.setState({selection: -1})}>
 							<Text style={this.state.selection === -1 ? {fontWeight: 'bold'} : {fontWeight: 'normal'}}>No</Text>

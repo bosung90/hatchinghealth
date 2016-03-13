@@ -40,7 +40,7 @@ export default class EnterData extends Component {
 					:
 					null
 				}
-				<Text style={{marginTop: 16,}}>Comapred to yesterday, I feel...</Text>
+				<Text style={{marginTop: 16, alignSelf: 'flex-start', marginLeft: 12, marginBottom: 12}}>Comapred to yesterday, I feel...</Text>
 				<QuestionCard question='1. Short of breath when exerting.' bgColor='#ddd'></QuestionCard>
 				<QuestionCard question='2. Short of breadth at night.'></QuestionCard>
 				<QuestionCard question='3. My leg swollen.' bgColor='#ddd'></QuestionCard>
