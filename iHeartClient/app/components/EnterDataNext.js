@@ -7,6 +7,7 @@ import React, {
 	AsyncStorage,
 	StyleSheet,
 	Dimensions,
+	Alert
 } from 'react-native'
 import style from './../style/style'
 import Meteor, {connectMeteor, } from 'react-native-meteor'
@@ -30,10 +31,15 @@ export default class EnterDataNext extends Component {
 
 	send(){
 		Meteor.call('addPatientRecord', {flag:'safe', weight:this.state.weight})
+		Alert.alert( 'Confirmed', 'Your data looks good, see you tomorrow:)', 
+		[{text: 'Ok', onPress: ()=> this.props.navigator.popToTop()},])
 	}
 
 	trigger(){
 		Meteor.call('addPatientRecord', {flag:'flagged', weight:this.state.weight})
+		Alert.alert( 'Alert!', 'The data you have input is flagged for concern. Do you want your treating physician to contact you?', 
+		[{text: 'Yes', onPress: () => console.log('Yes')}, 
+		{text: 'No', onPress: () => this.props.navigator.popToTop()}, ] )
 	}
 
 	render(){
