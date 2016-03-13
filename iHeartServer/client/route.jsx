@@ -21,3 +21,9 @@ FlowRouter.route('/register', {
 		ReactLayout.render(RegisterPage)
 	}
 })
+
+FlowRouter.route('/logout', {
+	action(params, queryParams) {
+		ReactLayout.render(LogoutPage)
+	}
+})

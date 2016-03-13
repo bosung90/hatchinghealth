@@ -160,7 +160,7 @@ DoctorDashboard = React.createClass({
                         </li>
                         <li className="divider"></li>
                         <li>
-                            <a href="#"><i className="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="/logout"><i className="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
