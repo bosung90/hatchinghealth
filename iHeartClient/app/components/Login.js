@@ -4,6 +4,7 @@ import React, {
 	Text,
 	TextInput,
 	TouchableOpacity,
+	AsyncStorage,
 } from 'react-native'
 import style from './../style/style'
 import Meteor, {connectMeteor, } from 'react-native-meteor'
@@ -23,7 +24,8 @@ export default class Login extends Component {
 			if(err) {
 				alert(JSON.stringify(err))
 			} else {
-				AsyncStorage.set('login', {username: this.state.username, password: this.state.password})
+				console.log('logged')
+				AsyncStorage.setItem('login', JSON.stringify({username: this.state.username, password: this.state.password}))
 				this.props.navigator.replace({className: 'Main', title: 'Main Page'})
 			}
 		})
