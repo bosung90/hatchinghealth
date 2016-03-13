@@ -9,3 +9,9 @@ FlowRouter.route('/main', {
 		ReactLayout.render(MainPage)
 	}
 })
+
+FlowRouter.route('/register', {
+	action(params, queryParams) {
+		ReactLayout.render(RegisterPage)
+	}
+})
