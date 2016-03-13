@@ -8,6 +8,7 @@ import React, {
 	Platform,
 	ScrollView,
 	Dimensions,
+	Navigator
 } from 'react-native'
 import style from './../style/style'
 import QuestionCard from './QuestionCard'
@@ -22,6 +23,9 @@ export default class EnterData extends Component {
 		this.state= {
 
 		}
+	}
+	submit(){
+		this.props.navigator.push({className:"EnterDataNext", title:"EnterDataNext"})
 	}
 
 	componentWillMount(){
@@ -47,7 +51,7 @@ export default class EnterData extends Component {
 				<QuestionCard question='2. Short of breadth at night.' onSelection={this.onSelection.bind(this, 2)}></QuestionCard>
 				<QuestionCard question='3. My leg swollen.' bgColor='#ddd' onSelection={this.onSelection.bind(this, 3)}></QuestionCard>
 				<QuestionCard question='4. Lightheaded.' onSelection={this.onSelection.bind(this, 4)}></QuestionCard>
-				<TouchableOpacity style={{height: 44, backgroundColor: '#1e88e5', width, justifyContent: 'center', alignItems: 'center',}} onPress={this.submit}>
+				<TouchableOpacity style={{height: 44, backgroundColor: '#1e88e5', width, justifyContent: 'center', alignItems: 'center',}} onPress={this.submit.bind(this)}>
 					<Text style={{color: 'white', fontSize: 19}}>Submit</Text>
 				</TouchableOpacity>
 			</ScrollView>
