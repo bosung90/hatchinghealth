@@ -5,7 +5,9 @@ import React, {
 	TouchableOpacity,
 } from 'react-native'
 import style from './../style/style'
+import Meteor, {connectMeteor, } from 'react-native-meteor'
 
+@connectMeteor
 export default class Main extends Component {
 	constructor(props){
 		super(props)
@@ -21,6 +23,10 @@ export default class Main extends Component {
 
 	profile(){
 		this.props.navigator.push({className: 'Profile', title: 'Profile'})
+	}
+
+	componentWillMount(){
+		this.props.setNavBarVisibility(true)
 	}
 
 	render(){

@@ -6,7 +6,9 @@ import React, {
 	TouchableOpacity,
 } from 'react-native'
 import style from './../style/style'
+import Meteor, {connectMeteor, } from 'react-native-meteor'
 
+@connectMeteor
 export default class History extends Component {
 
 	constructor(props){
@@ -17,6 +19,10 @@ export default class History extends Component {
 	}
 
 	submit(){
+	}
+
+	componentWillMount(){
+		this.props.setNavBarVisibility(true)
 	}
 
 	render(){
