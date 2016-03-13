@@ -5,6 +5,7 @@ import React, {
 	TextInput,
 } from 'react-native'
 import style from './../style/style'
+import Meteor, {connectMeteor, } from 'react-native-meteor'
 
 export default class App extends Component {
 	render(){
