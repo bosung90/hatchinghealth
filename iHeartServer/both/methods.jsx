@@ -1,7 +1,3 @@
-Posts = new Mongo.Collection('posts')
-
-Meteor.methods({
-  addPost() {
-    Posts.insert({title: 'Post ' + Random.id()})
-  },
-})
+Doctors = new Mongo.Collection('doctors')
+Patients = new Mongo.Collection('patients')
+PatientRecords = new Mongo.Collection('patientRecords')

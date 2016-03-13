@@ -15,3 +15,9 @@ FlowRouter.route('/charts', {
 		ReactLayout.render(ChartsPage)
 	}
 })
+
+FlowRouter.route('/register', {
+	action(params, queryParams) {
+		ReactLayout.render(RegisterPage)
+	}
+})
