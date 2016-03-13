@@ -18,7 +18,8 @@ import Login from './Login'
 import EnterData from './EnterData'
 import Support from './Support'
 import History from './History'
-const Page = {Login, Main, EnterData, Support, History}
+import EnterDataNext from './EnterDataNext'
+const Page = {Login, Main, EnterData, Support, History, EnterDataNext}
 
 @connectMeteor
 export default class App extends Component {
