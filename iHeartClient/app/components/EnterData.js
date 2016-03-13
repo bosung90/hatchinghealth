@@ -31,7 +31,7 @@ export default class EnterData extends Component {
 
 	}
 	onSelection(index, selection) {
-		alert(JSON.stringify({index, selection}))
+		// alert(JSON.stringify({index, selection}))
 	}
 	render(){
 		return(
@@ -47,9 +47,9 @@ export default class EnterData extends Component {
 				<QuestionCard question='2. Short of breadth at night.' onSelection={this.onSelection.bind(this, 2)}></QuestionCard>
 				<QuestionCard question='3. My leg swollen.' bgColor='#ddd' onSelection={this.onSelection.bind(this, 3)}></QuestionCard>
 				<QuestionCard question='4. Lightheaded.' onSelection={this.onSelection.bind(this, 4)}></QuestionCard>
-	 				<TouchableOpacity style={{height: 44, backgroundColor: '#1e88e5', width, justifyContent: 'center', alignItems: 'center',}} onPress={this.submit}>
-	 					<Text style={{color: 'white', fontSize: 19}}>Submit</Text>
-	 				</TouchableOpacity>
+				<TouchableOpacity style={{height: 44, backgroundColor: '#1e88e5', width, justifyContent: 'center', alignItems: 'center',}} onPress={this.submit}>
+					<Text style={{color: 'white', fontSize: 19}}>Submit</Text>
+				</TouchableOpacity>
 			</ScrollView>
 		)
 	}
