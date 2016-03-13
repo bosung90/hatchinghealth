@@ -34,7 +34,7 @@ export default class App extends Component {
 			return React.createElement(Page[route.className], {route, navigator, setNavBarVisibility: this.setNavBarVisibility.bind(this)})
 		} else {
 			route.title = 'Main'
-			return React.createElement(Page['Main'], {route, navigator, setNavBarVisibility: this.setNavBarVisibility.bind(this)})
+			return React.createElement(Page['Login'], {route, navigator, setNavBarVisibility: this.setNavBarVisibility.bind(this)})
 		}
 	}
   setNavBarVisibility(visible) {
@@ -66,7 +66,7 @@ export default class App extends Component {
 			}
 		})
 
-    const url = 'http://'+(this.props.serverUrl || '128.189.242.43')+':3003/websocket'
+    const url = 'http://'+(this.props.serverUrl || '192.168.43.169')+':3000/websocket'
     Meteor.connect(url)
 
     Meteor.ddp.on('connected', function() {

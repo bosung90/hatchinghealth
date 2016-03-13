@@ -33,14 +33,17 @@ DoctorDashboard = React.createClass({
 
 	//     return null;
 	// },
-
+    onPatientUnflag(patientRecordId) {
+        PatientRecords.remove(patientRecordId)
+    },
 	_renderPatientRecords() {
 		if(this.data.patientRecords && this.data.patientRecords.length > 0) {
 			return this.data.patientRecords.map((patientRecord)=>{
 				return (
 					<tr key={patientRecord._id}>
-	                    <td>{patientRecord._id}</td>
+	                    <td><button onClick={this.onPatientUnflag.bind(this, patientRecord._id)}>{patientRecord._id}</button></td>
 	                    <td>{patientRecord.measuredDate.toString()}</td>
+                        <td>{patientRecord.weight}</td>
 	                    <td>Lisa Wong</td>
 	                    <td>778-333-4444</td>
 	                </tr>
@@ -172,7 +175,7 @@ DoctorDashboard = React.createClass({
                         <a href="/"><i className="fa fa-fw fa-dashboard"></i> Alerts </a>
                     </li>
                     <li>
-                        <a href="/patients.html"><i className="fa fa-fw fa-bar-chart-o"></i> Patients</a>
+                        <a href="/patients"><i className="fa fa-fw fa-bar-chart-o"></i> Patients</a>
                     </li>
                 </ul>
             </div>
@@ -280,6 +283,7 @@ DoctorDashboard = React.createClass({
                                             <tr>
                                                 <th>Alert ID</th>
                                                 <th>Alert Date</th>
+                                                <th>Weight</th>
                                                 <th>Name</th>
                                                 <th>Phone Number</th>
                                             </tr>

@@ -12,7 +12,7 @@ FlowRouter.route('/DoctorDashboard', {
 
 FlowRouter.route('/patients', {
 	action(params, queryParams) {
-		ReactLayout.render(Patients)
+		ReactLayout.render(PatientsPage)
 	}
 })
 

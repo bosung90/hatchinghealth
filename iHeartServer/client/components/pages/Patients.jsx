@@ -1,57 +1,32 @@
-Patients = React.createClass({
-	mixins: [ReactMeteorData],
-	getMeteorData() {
-
-		return {
-			patients : Patients.find().fetch(),
-			patientRecords : PatientRecords.find({}, {$eq: {flag: 'flagged'}}).fetch(),
-		}
-	},
+PatientsPage = React.createClass({
+    mixins: [ReactMeteorData],
+    getMeteorData() {
+        return {
+            patients : Patients.find().fetch(),
+        }
+    },
     getInitialState(){
         return {
             flagged:0
         }
     },
-
-	getPatientName(patientId){
-
-	    for( i=0; i < this.data.patients.length; i++) {
-	    	if (this.data.patients[i]._id = patientId) { 
-	    	    return this.data.patients[i].name; 
-	    	}
-	    }
-
-	    return null; 
-	},
-	getPatientPhoneNumber(patientId){
-
-	    for( i=0; i < this.data.patients.length; i++) {
-	    	if (this.data.patients[i]._id == patientId) { 
-	    	    return this.data.patients[i].phoneNumber;  
-	    	}
-	    }
-
-	    return null;
-	},
-
-	_renderPatientRecords() {
-		if(this.data.patientRecords && this.data.patientRecords.length > 0) {
-            this.setState({flagged:this.data.patientRecords.length })
-			return this.data.patientRecords.map((patientRecord)=>{
-				return (
-					<tr key={patientRecord._id}>
-	                    <td>{patientRecord._id}</td>
-	                    <td>{patientRecord.measuredDate.toString()}</td>
-	                    <td>{this.getPatientName(patientRecord.patientId)}</td>
-	                    <td>{this.getPatientPhoneNumber(patientRecord.patientId)}</td>
-	                </tr>
-				)
-			})
-		}
-	},
-	render() {
-		return (
-			 <div id="wrapper">
+    _renderPatients() {
+        if(this.data.patients && this.data.patients.length > 0) {
+            return this.data.patients.map((patient)=>{
+                return (
+                    <tr key={patient._id}>
+                        <td>{patient._id}</td>
+                        <td>{patient.name}</td>
+                        <td>{patient.baseWeight}</td>
+                        <td>{patient.phoneNumber}</td>
+                    </tr>
+                )
+            })
+        }
+    },
+    render() {
+        return (
+             <div id="wrapper">
 
         {/*Navigation*/}
         <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -169,11 +144,11 @@ Patients = React.createClass({
             {/*Sidebar Menu Items - These collapse to the responsive navigation menu on small screens*/}
             <div className="collapse navbar-collapse navbar-ex1-collapse">
                 <ul className="nav navbar-nav side-nav">
-                    <li className="active">
+                    <li>
                         <a href="/"><i className="fa fa-fw fa-dashboard"></i> Alerts </a>
                     </li>
-                    <li>
-                        <a href="/patients.html"><i className="fa fa-fw fa-bar-chart-o"></i> Patients</a>
+                    <li className="active">
+                        <a href="/patients"><i className="fa fa-fw fa-bar-chart-o"></i> Patients</a>
                     </li>
                 </ul>
             </div>
@@ -203,7 +178,7 @@ Patients = React.createClass({
                                         <i className="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div className="col-xs-9 text-right">
-                                        <div className="huge">{this.state.flagged}</div>
+                                        <div className="huge">{this.data.patients ? this.data.patients.length : 0}</div>
                                         <div>New Alerts</div>
                                     </div>
                                 </div>
@@ -279,14 +254,14 @@ Patients = React.createClass({
                                     <table className="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Alert ID</th>
-                                                <th>Alert Date</th>
+                                                <th>Patient ID</th>
                                                 <th>Name</th>
+                                                <th>Base Weight</th>
                                                 <th>Phone Number</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        	{this._renderPatientRecords()}
+                                            {this._renderPatients()}
                                         </tbody>
                                     </table>
                                 </div>
@@ -306,6 +281,6 @@ Patients = React.createClass({
         {/* /#page-wrapper */}
 
     </div>
-		)
-	}
+        )
+    }
 })

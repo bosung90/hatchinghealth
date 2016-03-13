@@ -20,6 +20,13 @@ export default class Support extends Component {
 	}
 
 	signOut(){
+		Meteor.logout((err)=>{
+			if(err) {
+				alert(JSON.stringify(err))
+			} else {
+				this.props.navigator.resetTo({className: 'Login', title: 'Login'})
+			}
+		})
 	}
 
 	componentWillMount(){
