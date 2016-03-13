@@ -12,19 +12,19 @@ Meteor.startup(()=>{
 
 		let date = new Date();
 		date.setDate(date.getDate() - 1);
-		PatientRecords.insert({patientId: patientUserId, weight: '68', flag: true, measuredDate: date})
+		PatientRecords.insert({patientId: patientUserId, weight: '68', flag: 'flagged', measuredDate: date})
 
 		date.setDate(date.getDate() - 1);
-		PatientRecords.insert({patientId: patientUserId, weight: '66', flag: false, measuredDate: date})
+		PatientRecords.insert({patientId: patientUserId, weight: '66', flag: 'flagged', measuredDate: date})
 
 		date.setDate(date.getDate() - 1);
-		PatientRecords.insert({patientId: patientUserId, weight: '64', flag: false, measuredDate: date})
+		PatientRecords.insert({patientId: patientUserId, weight: '64', flag: 'assessed', measuredDate: date})
 
 		date.setDate(date.getDate() - 1);
-		PatientRecords.insert({patientId: patientUserId, weight: '62', flag: false, measuredDate: date})
+		PatientRecords.insert({patientId: patientUserId, weight: '62', flag: 'safe', measuredDate: date})
 
 		date.setDate(date.getDate() - 1);
-		PatientRecords.insert({patientId: patientUserId, weight: '60', flag: false, measuredDate: date})
+		PatientRecords.insert({patientId: patientUserId, weight: '60', flag: 'safe', measuredDate: date})
 	}
 	
 })
