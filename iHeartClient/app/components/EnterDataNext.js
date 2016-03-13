@@ -17,10 +17,10 @@ export default class EnterDataNext extends Component {
 	constructor(props){
 		super(props)
 		this.state= {
-			weight:undefined,
-			systolic:undefined,
-			diastolic:undefined,
-			heartRate:undefined
+			weight:'45',
+			systolic:'100',
+			diastolic:'120',
+			heartRate:'40'
 		}
 	}
 
@@ -29,7 +29,11 @@ export default class EnterDataNext extends Component {
 	}
 
 	send(){
+		Meteor.call('addPatientRecord', {flag:'safe', weight:this.state.weight})
+	}
 
+	trigger(){
+		Meteor.call('addPatientRecord', {flag:'flagged', weight:this.state.weight})
 	}
 
 	render(){
@@ -77,6 +81,11 @@ export default class EnterDataNext extends Component {
 				<Text style={styles.text}>Send</Text>
 			</TouchableOpacity>
 			</View>
+			<View style={[styles.button, {margin:5, backgroundColor:'red'}]}>
+			<TouchableOpacity style={styles.box} onPress={this.trigger.bind(this)}>
+				<Text style={styles.text}>Trigger</Text>
+			</TouchableOpacity>
+			</View>
 			</View>
 
 		)
@@ -103,7 +112,6 @@ let styles= StyleSheet.create({
 		width:200,
 		alignItems: 'center',
 		justifyContent: 'center',
-
 	}
 
 })
