@@ -19,7 +19,7 @@ RegisterPage = React.createClass({
 	},
 	render() {
 		return (
-			<div id="loginModal" className="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+			<div id="loginModal" className="modal show" tabIndex="-1" role="dialog" aria-hidden="true">
 			  <div className="modal-dialog">
 			  <div className="modal-content">
 			      <div className="modal-header">
