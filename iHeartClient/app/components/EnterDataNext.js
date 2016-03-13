@@ -46,7 +46,7 @@ export default class EnterDataNext extends Component {
  				</View>
 			<Text style={{marginTop:20}}>Blood Pressure</Text>
 			<View style={{flexDirection: 'row', justifyContent: 'space-between', width: 300}}>
-				<View style={{flexDirection: 'column'}}>
+				<View style={{flexDirection: 'column', alignItems:'center'}}>
 					<View style={{width: 130, borderWidth: 2}}>
 		 				<TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1,}}
 		 					underlineColorAndroid ='transparent'
@@ -55,7 +55,7 @@ export default class EnterDataNext extends Component {
 	 				</View>
 	 				<Text>upper#</Text>
  				</View>
- 				<View style={{flexDirection: 'column'}}>
+ 				<View style={{flexDirection: 'column', alignItems:'center'}}>
  					<View style={{width: 130, borderWidth: 2}}>
 		 				<TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1,}}
 		 					underlineColorAndroid ='transparent'
