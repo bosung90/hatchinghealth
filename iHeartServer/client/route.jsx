@@ -4,9 +4,15 @@ FlowRouter.route('/', {
 	}
 })
 
-FlowRouter.route('/main', {
+FlowRouter.route('/DoctorDashboard', {
 	action(params, queryParams) {
-		ReactLayout.render(MainPage)
+		ReactLayout.render(DoctorDashboard)
+	}
+})
+
+FlowRouter.route('/charts', {
+	action(params, queryParams) {
+		ReactLayout.render(ChartsPage)
 	}
 })
 
