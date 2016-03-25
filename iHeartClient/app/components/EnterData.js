@@ -41,11 +41,11 @@ export default class EnterData extends Component {
 		return(
 			<ScrollView contentContainerStyle={styles.container}>
 				<Text style={{fontSize: 20, marginTop: 16,}}>New Log</Text>
-				{Platform.OS === 'ios' ? 
+				{/*{Platform.OS === 'ios' ? 
 					<DatePickerIOS />
 					:
 					null
-				}
+				}*/}
 				<Text style={{marginTop: 16, alignSelf: 'flex-start', marginLeft: 12, marginBottom: 12}}>Comapred to yesterday, I feel...</Text>
 				<QuestionCard question='1. Short of breath when exerting.' bgColor='#ddd' onSelection={this.onSelection.bind(this, 1)}></QuestionCard>
 				<QuestionCard question='2. Short of breadth at night.' onSelection={this.onSelection.bind(this, 2)}></QuestionCard>
